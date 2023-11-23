@@ -1,0 +1,7 @@
+% Convert centigrade to Fahrenheit
+c_to_f(C, F) :-
+  F is (9/5)*C + 32.
+
+% Check if a temperature is below freezing
+below_freezing(F) :-
+  F=<32.
