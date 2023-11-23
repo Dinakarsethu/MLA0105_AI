@@ -1,0 +1,23 @@
+% Location facts
+location('New York', 'New York').
+location('Los Angeles', 'California').
+location('Chicago', 'Illinois').
+location('Dallas', 'Texas').
+location('Atlanta', 'Georgia').
+
+% Stays facts
+stays('John', 'New York').
+stays('Mary', 'Los Angeles').
+stays('Peter', 'Chicago').
+stays('Alice', 'Dallas').
+stays('Bob', 'Atlanta').
+
+% List all persons, state, and city
+list_all_stays :-
+  findall((Person, State, City), (stays(Person, City), location(City, State)), List),
+  write(List).
+
+% Find the state in which a given person is staying
+find_state(Person, State) :-
+  stays(Person, City),
+  location(City, State).
